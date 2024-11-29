@@ -9,6 +9,8 @@ public class Practice {
         //boolean result = shouldWakeUp(true, 23.40 );
         //System.out.println(result);
 
+        System.out.println(area(5.2));
+        System.out.println(area(2.4,4.7));
 
 
     }
@@ -38,27 +40,28 @@ public class Practice {
 //
 //        shouldWakeUp (true, -1); → should return false since the hourOfDay parameter needs to be in a range 0-23.
 
-    public static boolean barkingDog1(boolean barking, int hrOfDay){
+    public static boolean barkingDog1(boolean barking, int hrOfDay) {
 
-        if((hrOfDay <= 23 && hrOfDay >= 0) && ((hrOfDay < 8 && barking) || (hrOfDay > 22 && barking))){
+        if ((hrOfDay <= 23 && hrOfDay >= 0) && ((hrOfDay < 8 && barking) || (hrOfDay > 22 && barking))) {
             return true;
         } else {
             return false;
         }
     }
 
-    public static Boolean shouldWakeUp(boolean isBark, double  hourOfDay){
+    public static Boolean shouldWakeUp(boolean isBark, double hourOfDay) {
 
-        if (hourOfDay<0.0 && hourOfDay>23.00){
+        if (hourOfDay < 0.0 && hourOfDay > 23.00) {
             return false;
         }
-        if (isBark == true && (hourOfDay<8.00 && hourOfDay>22.00)){
+        if (isBark == true && (hourOfDay < 8.00 && hourOfDay > 22.00)) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
     }
+
     /* Q2 - Area Calculator
     Write a method named area with one double parameter named radius.
     The method needs to return a double value that represents the area of a circle. If the parameter radius is negative then return -1.0 to represent an invalid value. Write another overloaded method with 2 parameters x and y (both doubles), where x and y represent the sides of a rectangle.
@@ -70,8 +73,36 @@ public class Practice {
     area(-1.0, 4.0);  should return -1 since first the parameter is negative
 
     */
+    public static double area(double radius) {
+        if (radius < 0) {
+            return -1.0;
+        } else {
+            double constant = 3.14;
+            return constant * Math.pow(radius, 2);
+        }
+    }
 
+    public static double area(double x, double y) {
+        if (x < 0 || y < 0) {
+            return -1.0;
+        }else{
+            return x*y;
+        }
+    }
 
+//    Question 3
+//    Equality Printer
+//    Write a method printEqual with 3 parameters of type int. The method should not return anything (void).
+//    If one of the parameters is less than 0, print text "Invalid Value".
+//    If all numbers are equal print text "All numbers are equal"
+//    If all numbers are different print text "All numbers are different".
+//    Otherwise, print "Neither all are equal or different".
+//
+//    EXAMPLES OF INPUT/OUTPUT:
+//    printEqual(1, 1, 1); should print text All numbers are equal
+//    printEqual(1, 1, 2); should print text Neither all are equal nor different
+//    printEqual(-1, -1, -1); should print text Invalid Value
+//    printEqual(1, 2, 3); should print text All numbers are different
 
 
 }
